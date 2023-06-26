@@ -22,6 +22,7 @@ public class StockQuotesPusher {
             while(allSessions.hasMoreElements()){
                 WebSocketSession session= allSessions.nextElement();
                 session.sendMessage(new TextMessage("Server echo: "+session.getId()+" stock quotes"));
+                session.sendMessage(new TextMessage("--------------"));
             }
         }
 
