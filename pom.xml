@@ -33,9 +33,18 @@
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
       <optional>true</optional>
     </dependency>
+   <!-- <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-boot-starter</artifactId>
+      <version>3.5.3.1</version>
+    </dependency>-->
   </dependencies>
 
   <build>
@@ -44,6 +53,14 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
+     <!-- <plugin>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-generator-maven-plugin</artifactId>
+        &lt;!&ndash;<version>3.5.3</version>&ndash;&gt;
+        <configuration>
+          <configurationFile>src/main/resources/generator-config.xml</configurationFile>
+        </configuration>
+      </plugin>-->
     </plugins>
   </build>
 

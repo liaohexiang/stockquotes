@@ -9,10 +9,10 @@ import org.springframework.boot.context.metrics.buffering.BufferingApplicationSt
 public class StockQuotesApplication
 {
     public static void main(String[] args) {
-        //SpringApplication.run(StockQuotesApplication.class, args);
-        new SpringApplicationBuilder()
+        SpringApplication.run(StockQuotesApplication.class, args);
+        /*new SpringApplicationBuilder()
                 .sources(StockQuotesApplication.class)
                 .applicationStartup(new BufferingApplicationStartup(2048))
-                .run(args);
+                .run(args);*/
     }
 }
