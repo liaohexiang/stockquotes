@@ -1,4 +1,4 @@
-package org.example;
+package org.tony.stockquotes;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.WebSocketSession;

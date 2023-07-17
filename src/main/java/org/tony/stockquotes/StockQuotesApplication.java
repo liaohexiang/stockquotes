@@ -1,9 +1,11 @@
-package org.example;
+package org.tony.stockquotes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.metrics.buffering.BufferingApplicationStartup;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class StockQuotesApplication
@@ -14,5 +16,8 @@ public class StockQuotesApplication
                 .sources(StockQuotesApplication.class)
                 .applicationStartup(new BufferingApplicationStartup(2048))
                 .run(args);*/
+
+        List list = new ArrayList<String>();
+        list.stream().map(i->i+"i").collect(Collectors.toList());
     }
 }
