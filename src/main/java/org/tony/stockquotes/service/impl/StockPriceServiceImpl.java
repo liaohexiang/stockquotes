@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class StockPriceServiceImpl extends ServiceImpl<StockPriceMapper, StockPrice>
     implements StockPriceService{
-
+     public void main(String[] args){
+         System.out.println("yes");
+     }
 }
 
 
