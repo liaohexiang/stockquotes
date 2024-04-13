@@ -3,14 +3,13 @@ management:
     web:
       exposure:
         include: "*"
+spring:
+  redis:
+    client-type: LETTUCE
+  application:
+    name: stockquotes
 
-
-
-
-
-
-
-
-
+server:
+  port: 8080
 
 

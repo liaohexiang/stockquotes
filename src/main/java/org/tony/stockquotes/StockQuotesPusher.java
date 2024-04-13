@@ -1,6 +1,8 @@
 package org.tony.stockquotes;
 
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.data.redis.connection.stream.MapRecord;
+//import org.springframework.data.redis.stream.StreamMessageListenerContainer;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.TextMessage;
@@ -14,7 +16,8 @@ public class StockQuotesPusher {
     @Autowired
     private WebSocketSessionManager webSocketSessionManager;
 
-    @Scheduled(fixedRate=2000)
+
+/*    @Scheduled(fixedRate=2000)
     public void doPush() throws Exception{
         if(webSocketSessionManager.hasSessions()){
             Enumeration<WebSocketSession> allSessions =  webSocketSessionManager.getAllSessions();
@@ -25,5 +28,5 @@ public class StockQuotesPusher {
             }
         }
 
-    }
+    }*/
 }
