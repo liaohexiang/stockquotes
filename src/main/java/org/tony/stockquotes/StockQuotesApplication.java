@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @SpringBootApplication
-public class StockQuotesApplication
-{
+public class StockQuotesApplication {
     public static void main(String[] args) {
         SpringApplication.run(StockQuotesApplication.class, args);
         /*new SpringApplicationBuilder()
@@ -18,6 +17,6 @@ public class StockQuotesApplication
                 .run(args);*/
 
         List list = new ArrayList<String>();
-        list.stream().map(i->i+"i").collect(Collectors.toList());
+        list.stream().map(i -> i + "i").collect(Collectors.toList());
     }
 }

@@ -11,6 +11,7 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
 
     @Autowired
     private WebSocketSessionManager manager;
+
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         // 处理WebSocket连接建立的逻辑
@@ -24,6 +25,6 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         // 处理接收到的文本消息的逻辑
         // 可以在这里处理接收到的消息、发送消息给客户端等
-        session.sendMessage(new TextMessage("Server echo:"+message.getPayload()));
+        session.sendMessage(new TextMessage("Server echo:" + message.getPayload()));
     }
 }

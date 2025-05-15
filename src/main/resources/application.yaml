@@ -12,5 +12,6 @@ management:
 
 
 
-
-
+server:
+  servlet:
+    context-path:

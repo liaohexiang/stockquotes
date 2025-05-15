@@ -5,11 +5,11 @@
 <mapper namespace="org.tony.stockquotes.mapper.StockPriceMapper">
 
     <resultMap id="BaseResultMap" type="org.tony.stockquotes.entity.StockPrice">
-            <id property="id" column="id" jdbcType="BIGINT"/>
-            <result property="code" column="code" jdbcType="VARCHAR"/>
-            <result property="price" column="price" jdbcType="DECIMAL"/>
-            <result property="timeline" column="timeline" jdbcType="TIMESTAMP"/>
-            <result property="name" column="name" jdbcType="VARCHAR"/>
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="code" column="code" jdbcType="VARCHAR"/>
+        <result property="price" column="price" jdbcType="DECIMAL"/>
+        <result property="timeline" column="timeline" jdbcType="TIMESTAMP"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
