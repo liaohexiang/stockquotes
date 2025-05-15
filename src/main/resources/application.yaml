@@ -1,16 +1,6 @@
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+server:
+  port: 8080
 
-
-
-
-
-
-
-
-
-
-
+spring:
+  application:
+    name: stock-quotes
