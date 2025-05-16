@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Quotes WebSocket Client</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #messages {
+            height: 300px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        .status {
+            padding: 5px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+        }
+        .connected {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .disconnected {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:disabled {
+            background-color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stock Quotes WebSocket Client</h1>
+
+    <div id="status" class="status disconnected">Disconnected</div>
+
+    <div>
+        <button id="connectBtn">Connect</button>
+        <button id="disconnectBtn" disabled>Disconnect</button>
+    </div>
+
+    <h2>Messages</h2>
+    <div id="messages"></div>
+
+    <script>
+        const connectBtn = document.getElementById('connectBtn');
+        const disconnectBtn = document.getElementById('disconnectBtn');
+        const statusDiv = document.getElementById('status');
+        const messagesDiv = document.getElementById('messages');
+
+        let socket = null;
+
+        // 设置明确的WebSocket URL
+        function getWebSocketUrl() {
+            return 'ws://localhost:8080/stock';
+        }
+
+        // 连接WebSocket
+        function connect() {
+            if (socket !== null) return;
+
+            const wsUrl = getWebSocketUrl();
+            socket = new WebSocket(wsUrl);
+
+            socket.onopen = function() {
+                statusDiv.textContent = 'Connected';
+                statusDiv.className = 'status connected';
+                connectBtn.disabled = true;
+                disconnectBtn.disabled = false;
+                logMessage('Connected to WebSocket server');
+            };
+
+            socket.onmessage = function(event) {
+                logMessage('Received: ' + event.data);
+            };
+
+            socket.onclose = function() {
+                statusDiv.textContent = 'Disconnected';
+                statusDiv.className = 'status disconnected';
+                connectBtn.disabled = false;
+                disconnectBtn.disabled = true;
+                logMessage('Disconnected from WebSocket server');
+                socket = null;
+            };
+
+            socket.onerror = function(error) {
+                logMessage('Error: ' + error.message);
+            };
+        }
+
+        // 断开WebSocket
+        function disconnect() {
+            if (socket !== null) {
+                socket.close();
+            }
+        }
+
+        // 记录消息
+        function logMessage(message) {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = message;
+            messagesDiv.appendChild(messageElement);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        // 事件监听
+        connectBtn.addEventListener('click', connect);
+        disconnectBtn.addEventListener('click', disconnect);
+
+        // 页面关闭前断开连接
+        window.addEventListener('beforeunload', function() {
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                disconnect();
+            }
+        });
+    </script>
+</body>
+</html>

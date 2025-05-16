@@ -5,7 +5,7 @@
     <property name="LOG_FILE" value="../logs/stockquoteslogs/stock_quotes.log"/>
     <include resource="org/springframework/boot/logging/logback/file-appender.xml"/>
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="FILE"/>
         <appender-ref ref="CONSOLE"/>
     </root>

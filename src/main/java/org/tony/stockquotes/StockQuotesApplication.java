@@ -16,7 +16,7 @@ public class StockQuotesApplication {
                 .applicationStartup(new BufferingApplicationStartup(2048))
                 .run(args);*/
 
-        List list = new ArrayList<String>();
-        list.stream().map(i -> i + "i").collect(Collectors.toList());
+/*        List list = new ArrayList<String>();
+        list.stream().map(i -> i + "i").collect(Collectors.toList());*/
     }
 }
