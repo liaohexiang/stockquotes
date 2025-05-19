@@ -13,6 +13,7 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
     @Autowired
     private WebSocketSessionManager manager;
 
+
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         // 处理WebSocket连接建立的逻辑
