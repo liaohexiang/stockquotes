@@ -5,16 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class StockQuotesApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(StockQuotesApplication.class, args);
 
-        /*new SpringApplicationBuilder()
-                .sources(StockQuotesApplication.class)
-                .applicationStartup(new BufferingApplicationStartup(2048))
-                .run(args);*/
+	public static void main(String[] args) {
+		SpringApplication.run(StockQuotesApplication.class, args);
+	}
 
-/*        List list = new ArrayList<String>();
-        list.stream().map(i -> i + "i").collect(Collectors.toList());*/
-
-    }
 }
